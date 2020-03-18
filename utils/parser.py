@@ -7,7 +7,7 @@ def parse_data():
     html = str(response.content)
     soup = BeautifulSoup(html, 'html.parser')
     all_country_data = {}
-    for tr in soup.find('table', id="main_table_countries").findAll('tr'):
+    for tr in soup.find('table', id="main_table_countries_today").findAll('tr'):
         country_data = {}
         tds = tr.findAll('td')
         if len(tds) > 0:
