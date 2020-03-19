@@ -4,3 +4,5 @@ mysql==0.0.2
 mysql-connector-python==8.0.19
 arrow==0.15.5
 apscheduler==3.6.3
+flask-sqlalchemy==2.4.1
+psycopg2==2.8.4

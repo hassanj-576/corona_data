@@ -1,3 +1,4 @@
+import arrow
 import requests
 from bs4 import BeautifulSoup
 
@@ -21,3 +22,25 @@ def parse_data():
             country_data['active_cases'] = int(tds[6].get_text().replace(',', '').strip() or 0)
             all_country_data[tds[0].get_text().strip().lower()] = country_data
     return all_country_data
+
+
+def parse_time(time):
+    start_time = None
+    end_time = arrow.utcnow().floor('hour')
+    if time == 'day':
+        start_time = end_time.shift(days=-1).datetime
+        end_time = end_time.datetime
+    if time == 'week':
+        start_time = end_time.shift(days=-7).datetime
+        end_time = end_time.datetime
+    if time == 'month':
+        start_time = end_time.shift(months=-1).datetime
+        end_time = end_time.datetime
+
+    return start_time, end_time
+
+
+def parse_trunc(time):
+    if time == 'day':
+        return 'hour'
+    return 'day'
