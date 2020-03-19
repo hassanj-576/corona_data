@@ -39,7 +39,7 @@ def get_country_data(country_name: str):
 
 @app.route('/country/<country_name>/<time>', methods=['GET'])
 def get_country_for_time_frame(country_name: str, time: str):
-    data= get_country_data_for_time(country_name, time)
+    data = get_country_data_for_time(country_name, time)
     return jsonify(data)
 
 

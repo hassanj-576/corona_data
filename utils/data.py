@@ -1,5 +1,6 @@
 from sqlalchemy import func
-from sqlalchemy.dialects.mysql import insert
+from sqlalchemy.dialects.postgresql import insert
+
 
 from models import db, Country_json_data, Country_data
 
@@ -32,7 +33,7 @@ def store_json_data_in_db(current_data, time):
             time=time,
             json_data=data)
 
-        on_duplicate_key_stmt = insert_stmt.on_duplicate_key_update(
+        on_duplicate_key_stmt = insert_stmt.on_conflict_do_update(
             time=time,
             json_data=data
         )
