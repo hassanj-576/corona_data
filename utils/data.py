@@ -33,7 +33,7 @@ def store_json_data_in_db(current_data, time):
             json_data=data)
 
         on_duplicate_key_stmt = insert_stmt.on_conflict_do_update(
-            index_elements=[Country_json_data.c.country],
+            index_elements=['country'],
             set_=dict(time=time, json_data=data)
         )
 
