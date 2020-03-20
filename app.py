@@ -3,6 +3,7 @@ import atexit
 from apscheduler.schedulers.background import BackgroundScheduler
 from flask import Flask, jsonify
 from flask_cors import CORS, cross_origin
+
 from models import db
 from utils.hourly_task import hourly_task
 from utils.parse_requests import get_latest_data_for_count, get_country_data_for_time
@@ -25,12 +26,6 @@ scheduler.start()
 
 # Shut down the scheduler when exiting the app
 atexit.register(lambda: scheduler.shutdown())
-
-
-@app.route('/')
-def hello_world():
-    # hourly_task()
-    return 'Hello World!'
 
 
 @app.route('/country/<country_name>', methods=['GET'])

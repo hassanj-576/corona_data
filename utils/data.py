@@ -57,7 +57,7 @@ def get_country_detail_data(country, start_time, end_time, trunc):
         .filter(
         Country_data.time >= start_time, Country_data.time <= end_time,
         Country_data.country == country
-    ).group_by('time').order_by('time')
+    ).group_by(func.date_trunc(trunc, Country_data.time)).order_by(func.date_trunc(trunc, Country_data.time))
     return_list = []
     for result in query.all():
         return_list.append(result._asdict())
