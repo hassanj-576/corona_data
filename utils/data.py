@@ -5,8 +5,7 @@ from models import db, Country_json_data, Country_data
 
 
 def get_previous_all_data(previous_time):
-    query = db.session.query(Country_json_data.country, Country_json_data.json_data).filter(
-        Country_json_data.time == previous_time)
+    query = db.session.query(Country_json_data.country, Country_json_data.json_data)
     myresult = query.all()
     all_country_previous_data = {}
     if len(myresult) == 0:
