@@ -5,7 +5,8 @@ def aggregate_data(current_country_data, previous_all_countries_data, time):
             'new_deaths': 0,
             'total_recovered': 0,
             'total_cases': 0,
-            'total_deaths': 0
+            'total_deaths': 0,
+            'total_tests': 0
 
         }
     all_aggregated_data = []
@@ -16,12 +17,14 @@ def aggregate_data(current_country_data, previous_all_countries_data, time):
             'hourly_new_cases': country_data['total_cases'] - previous_country_data['total_cases'],
             'hourly_new_deaths': country_data['total_deaths'] - previous_country_data['total_deaths'],
             'hourly_new_recovered': country_data['total_recovered'] - previous_country_data['total_recovered'],
+            'hourly_new_tests': country_data['total_tests'] - previous_country_data['total_tests'],
             'total_cases': country_data['total_cases'],
             'total_deaths': country_data['total_deaths'],
             'total_recovered': country_data['total_recovered'],
             'active_cases': country_data['active_cases'],
             'daily_new_cases': country_data['new_cases'],
             'daily_new_deaths': country_data['new_deaths'],
+            'total_tests': country_data['total_tests'],
             'country': country,
             'time': time
         }

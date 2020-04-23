@@ -7,6 +7,7 @@ from flask_cors import CORS, cross_origin
 from models import db
 from utils.hourly_task import hourly_task
 from utils.parse_requests import get_latest_data_for_count, get_country_data_for_time
+from utils.parser import parse_data
 
 app = Flask(__name__)
 app.config.from_object('config.config')
@@ -42,4 +43,4 @@ def get_country_for_time_frame(country_name: str, time: str):
 
 
 if __name__ == '__main__':
-    app.run(app.run(host='0.0.0.0', port=5000))
+    app.run(app.run(host='0.0.0.0', port=5006))

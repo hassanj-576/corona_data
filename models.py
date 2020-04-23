@@ -5,7 +5,8 @@ db = SQLAlchemy()
 
 class Country_data(db.Model):
     def __init__(self, country, time, total_cases, total_deaths, total_recovered, active_cases, hourly_new_cases,
-                 hourly_new_deaths, hourly_new_recovered, daily_new_cases, daily_new_deaths):
+                 hourly_new_deaths, hourly_new_recovered, daily_new_cases, daily_new_deaths, hourly_new_tests,
+                 total_tests):
         self.country = country
         self.time = time
         self.total_cases = total_cases
@@ -17,6 +18,8 @@ class Country_data(db.Model):
         self.hourly_new_recovered = hourly_new_recovered
         self.daily_new_cases = daily_new_cases
         self.daily_new_deaths = daily_new_deaths
+        self.hourly_new_tests = hourly_new_tests
+        self.total_tests = total_tests
         pass
 
     id = db.Column(db.Integer, primary_key=True, nullable=False)
@@ -31,6 +34,8 @@ class Country_data(db.Model):
     hourly_new_recovered = db.Column(db.Integer, nullable=False)
     daily_new_cases = db.Column(db.Integer, nullable=False)
     daily_new_deaths = db.Column(db.Integer, nullable=False)
+    total_tests = db.Column(db.BigInteger, nullable=False)
+    hourly_new_tests = db.Column(db.Integer, nullable=False)
 
 
 class Country_json_data(db.Model):

@@ -6,7 +6,6 @@ from utils.parser import parse_data
 
 
 def hourly_task():
-    pass
     current_time = arrow.utcnow().floor('hour').strftime('%Y-%m-%d %H:%M:%S')
     previous_time = arrow.utcnow().floor('hour').shift(hours=-1).strftime('%Y-%m-%d %H:%M:%S')
     current_country_data = parse_data()
